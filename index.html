@@ -79,6 +79,82 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-DeFi借贷协议和清算" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/20/DeFi%E5%80%9F%E8%B4%B7%E5%8D%8F%E8%AE%AE%E5%92%8C%E6%B8%85%E7%AE%97/" class="article-date">
+  <time class="dt-published" datetime="2021-05-20T10:27:03.000Z" itemprop="datePublished">2021-05-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/20/DeFi%E5%80%9F%E8%B4%B7%E5%8D%8F%E8%AE%AE%E5%92%8C%E6%B8%85%E7%AE%97/">DeFi借贷协议和清算</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>据OKLink数据显示，由于以太坊价格剧烈波动，近 24 小时以太坊上借贷协议的清算量达 3.85亿美元，创历史新高。其中 AAVE V2 上的清算量达到 1.775 亿美元，排名首位，排名第二位的 Compound 为 1.352 亿美元，当前以太坊上借贷协议总借款额为 159 亿美元。</p>
+<img width="776" height="411" src="/pics/5a9d454e2f9d49c680efa5001d26f0b6.png"/>
+
+<p>以太坊DeFi借贷协议24小时清算量</p>
+<p>作为对比，上一次以太坊遭遇同样级别的跌幅，要追溯到去年的3月12日~13日，据欧易OKEx行情显示，两天之内以太坊价格从195.6美元下跌至87美元，最大跌幅达55.5%；同期在以太坊DeFi借贷协议上有价值0.72亿美元的资产遭到清算。一年时间，同样的行情下，清算资产金额增幅超过430%，从这个角度也可以一窥这一年来DeFi借贷协议蓬勃发展的势头。</p>
+<img width="776" height="450" src="/pics/9960cf75f829489d9fc9b4962b9e87d6.jpg"/>
+
+<p>2020年3月12日~13日与2021年5月19日以太坊价格走势，来源欧易OKEx</p>
+<p>接下来我们将继续了解基于以太坊的DeFi借贷协议的发展状况并重点介绍DeFi借贷协议中的清算机制。</p>
+<h3 id="DeFi借贷协议"><a href="#DeFi借贷协议" class="headerlink" title="DeFi借贷协议"></a><strong>DeFi借贷协议</strong></h3><p>提到DeFi借贷协议，就不得不提MakerDAO。MakerDAO项目启动于2014年，不仅是以太坊上的第一个成功的抵押借贷类的DeFi项目，更被认为是开启 DeFi大门的明星项目。MakerDAO作为一个流动性池为借贷需求双方提供一个平台，流动性提供者向池子提供资产并赚取利息，而借款人从池子贷款并支付债务利息。本质上，MakerDAO弥合了希望从闲置资金赚取利息的放款人与希望贷款用于生产或投资用途的借款人之间的缺口。</p>
+<p>MakerDAO协议建立于以太坊之上，是完全开源的，在公开透明的情况下运行，并且有去中心化的治理组织来确保每个人都清楚发生了什么——包括当前该市场上的存款量、借款量以及利率的变化和待清算资产的数量等等，每一个参与者都可以平等的获取全部信息。</p>
+<p>相较于传统金融市场中的借贷服务，以Maker DAO为代表的DeFi协议则提供了一个无审查、无障碍金融服务平台。目前MakerDAO已经支持ETH、BAT、USDC、WBTC、TUSD、KNC、ZRX等多种加密资产作为其稳定币Dai的抵押资产，同时为了保障系统稳定和用户资产安全，Maker DAO采用了超额抵押的模式，目前Maker DAO上的ETH的抵押率是一般为150%（其他抵押资产视其流动性差异略有不同），也就是说如果借款人想要获得100美元的DAI，需要抵押价值150美元的ETH。</p>
+<p>在这个过程中，借款利率由算法综合评估该抵押资产在平台中的借款量和存款量的变化来决定，显然这是一个浮动的数据，可以通过如下的数学公式表达出来：</p>
+<img width="776" height="207" src="/pics/bcf71ae3d5f7450da910398eba02b136.png"/>
+
+<p>Maker DAO借款利率计算方式</p>
+<p>简单的说，当借款使用率（也就是用户存进该协议的资产被借出的比例）越高的时候，对应的借贷利率也会越高，而借款利率决定着存款利率的高低，除了平台会收取的借款利息中的一部分作为平台收益，其余部分将按照存款比例全部平分给存款人作为他们的利息。</p>
+<img width="776" height="537" src="/pics/ceea330e79c946499d96ac10377f2f5c.png"/>
+
+<p>借贷利率与借款使用率的变化</p>
+<p>但是，需要指出的是，DeFi借贷协议中的的借款使用率并非越高越好，当借款使用率达到100%，即所有存入资金全部被借完的时候，如果有存款人决定从流动性池中取回资金或者抵押资产价值大幅下跌时，这将发生资金池里面的存款额小于借款额的极端情况，这将可能出现资金挤兑、资金池爆仓的风险。因此DeFi借贷系统通常都会设计有最优使用率（即上图中的拐点位置），当资金使用率超过最优使用率时，借款利率会大幅上升，以抑制更多的借款需求，保障资金池的安全。但即便有最优使用率的设计，仍然存在像2020年3月12日和今年5月19日这样极端行情冲击的风险，所以还需要有清算机制来作为“兜底”双保险。</p>
+<h3 id="什么是清算？为什么会有清算？"><a href="#什么是清算？为什么会有清算？" class="headerlink" title="什么是清算？为什么会有清算？"></a><strong>什么是清算？为什么会有清算？</strong></h3><p>什么是清算？从本质上讲，DeFi借贷协议中的清算就是以低于市场价格的方式出售一部分抵押资产，来支付借款人应向资金池归还的本金与利息，从而使得资金池得以持续健康运转的机制。</p>
+<p>为什么会引入清算机制？上面我们提到，在 DeFi 抵押借贷协议中，当抵押资产价值超过借款价值并且低于最优使用率的情况下，是比较健康的运行状态，此时借款人可以获得流动资金，同时无须出售其存入协议的资产。然而，当抵押资产价值大幅下降，或者借款价值升高时，借款人会有动机规避还款，这有可能让存借双方都陷入困境，进而导致坏账。</p>
+<p>在这样的背景下，所以就有了清算，即在借款人的抵押资产不足以覆盖其借款时，智能合约就会执行清算流程，借款人的抵押资产会被其他人以95%左右的折扣买走，同时借款人还可能需要缴纳一定的罚金。</p>
+<h3 id="如何进行清算？"><a href="#如何进行清算？" class="headerlink" title="如何进行清算？"></a><strong>如何进行清算？</strong></h3><p>这里首先需要引入一个“清算人”概念，DeFi 抵押借贷协议中的清算人机制类似于传统金融中对于不良资产的拍卖清算逻辑，既有风险也存在巨大的获利空间，通过中心化的方式，能够大大提升极端情况下的清算效率，避免加剧去中心化链上拥堵的风险，尽可能维护借贷协议安全稳定运行。需要指出的一点是，在DeFi 抵押借贷协议中，每一个参与者都有资格成为清算人。当然，成为清算人的一个必要前提是市场中有需要被清算的抵押资产，即上文所说的坏账。</p>
+<p>坏账何时出现？由于目前大多数DeFi 抵押借贷协议都采用的是超额抵押，所以当抵押资产本身价格下跌，导致借款人抵押资产的抵押率达到清算线时，坏账和清算人就会出现了。</p>
+<img width="776" height="415" src="/pics/e2864a3e63d540cdac6d816c7b0556a5.png"/>
+
+<p>DeFi 抵押借贷协议中触发清算的条件</p>
+<p>清算有两种常见的方式，一种是直接将借款人的部分抵押物以一定的折价通过合约挂单出售，允许任何用户代替借款人偿还债务后立即转售进行套利；另一种方式是从底价开始，以逐步加价的方式公开将抵押物进行拍卖。</p>
+<p>一般来说，大多数清算人更倾向于第一种套利方式进行交易。在DeFi 抵押借贷协议中，为了调动清算人的积极性，会使用一个名为清算人折扣的参数为清算人提供价格优惠，这个清算人折扣一般在5%左右，这意味着清算人可以以 5% 的优惠折扣重新购买抵押品。看到出现坏账的账户抵押资产不足时，清算人可以介入，以折扣价买下该抵押资产，并补充部分借款资金，直至将坏账账户的资产抵押率提高到150%以上。然后清算人可以转手进行搬砖套利，去二级市场卖出自己以95%折扣价买进的抵押资产，并为自己赚取一笔不错的收益。当然我们上面也提到了清算人在清算过程中既可能获得可观的收益也面临着一定的风险，这个风险就在于其以95%折扣买进的抵押资产价格还有可能进一步下跌，如果下跌幅度大于其享受的优惠折扣，那么就有亏损的风险，同时需要考虑的还有套利交易的手续费和链上交易的Gas费，比如在昨天的下跌行情中，我们观察到以太坊的平均手续费就出现了大幅上涨，一度达到0.01838401ETH/笔，而在两天前，单笔手续费仅仅需要0.00641721ETH。</p>
+<img width="776" height="443" src="/pics/701d6575a2574254812e1885dfe6f9a4.png"/>
+
+<p>2021年5月19日以太坊单笔手续费</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h3><p>在去年3月和今年5月的两次极端行情中，DeFi 抵押借贷协议中都出现了相当大额的清算。这给市场和DeFi参与者再次敲响了警钟，由于DeFi项目高度依赖 ETH 抵押模式，多层嵌套，杠杆循环放大，有明显的顺周期性和不稳定性，一方面需要从业者从经济学角度着手对借贷协议进一步优化，另一方面还需要DeFi参与者谨慎使用杠杆，对市场保持敬畏，时刻做好风控措施。</p>
+<p>同时昨日以太坊交易手续费的短时飙升也再次暴露出了链上交易速度慢限制市场出清效率的问题，需要以太坊 2.0 对性能问题进行重点改进。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tokyocoin.club/2021/05/20/DeFi%E5%80%9F%E8%B4%B7%E5%8D%8F%E8%AE%AE%E5%92%8C%E6%B8%85%E7%AE%97/" data-id="ckowrd94x00006sod51ni0x5j" data-title="DeFi借贷协议和清算" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DeFi/" rel="tag">DeFi</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-MetaMask使用教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/05/15/MetaMask%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
@@ -930,7 +1006,7 @@ ethereumprice.org/gas网站以不同的颜色显示每周的煤气费。
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/DeFi/" style="font-size: 10px;">DeFi</a> <a href="/tags/coin/" style="font-size: 20px;">coin</a> <a href="/tags/metamask/" style="font-size: 20px;">metamask</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/%E4%BA%A4%E6%98%93%E6%89%80/" style="font-size: 10px;">交易所</a> <a href="/tags/%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">平台</a> <a href="/tags/%E5%BC%80%E6%88%B7/" style="font-size: 10px;">开户</a> <a href="/tags/%E6%8C%87%E6%A0%87/" style="font-size: 10px;">指标</a> <a href="/tags/%E9%92%B1%E5%8C%85/" style="font-size: 20px;">钱包</a>
+      <a href="/tags/DeFi/" style="font-size: 20px;">DeFi</a> <a href="/tags/coin/" style="font-size: 20px;">coin</a> <a href="/tags/metamask/" style="font-size: 20px;">metamask</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a> <a href="/tags/%E4%BA%A4%E6%98%93%E6%89%80/" style="font-size: 10px;">交易所</a> <a href="/tags/%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">平台</a> <a href="/tags/%E5%BC%80%E6%88%B7/" style="font-size: 10px;">开户</a> <a href="/tags/%E6%8C%87%E6%A0%87/" style="font-size: 10px;">指标</a> <a href="/tags/%E9%92%B1%E5%8C%85/" style="font-size: 20px;">钱包</a>
     </div>
   </div>
 
@@ -952,6 +1028,10 @@ ethereumprice.org/gas网站以不同的颜色显示每周的煤气费。
       <ul>
         
           <li>
+            <a href="/2021/05/20/DeFi%E5%80%9F%E8%B4%B7%E5%8D%8F%E8%AE%AE%E5%92%8C%E6%B8%85%E7%AE%97/">DeFi借贷协议和清算</a>
+          </li>
+        
+          <li>
             <a href="/2021/05/15/MetaMask%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">MetaMask使用教程</a>
           </li>
         
@@ -965,10 +1045,6 @@ ethereumprice.org/gas网站以不同的颜色显示每周的煤气费。
         
           <li>
             <a href="/2021/05/01/%E5%B9%B3%E5%8F%B0%E5%B8%81/">平台币</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/28/%E6%B5%8B%E8%AF%95%E5%B8%81%E9%A2%86%E5%8F%96%E5%9C%B0%E5%9D%80/">测试币领取地址</a>
           </li>
         
       </ul>
